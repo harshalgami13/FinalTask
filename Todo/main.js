@@ -10,7 +10,7 @@ function getWeather() {
         let lat = position.coords.latitude;
         let long = position.coords.longitude;
 
-        let api = "http://api.weatherapi.com/v1/current.json?"
+        let api = "https://api.weatherapi.com/v1/current.json?"
         let key = "key=a98cae590ff541788ea52828222709"
         let url = api + key + "&q=" + lat + "," + long
 
@@ -53,7 +53,6 @@ function fetchGif() {
         .then(Response => Response.json())
         .then(datas => {
             let src = datas.data.images.fixed_height_downsampled.url
-            console.log(src)
             document.getElementById('gif').src = src
         })
 }
