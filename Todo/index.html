@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="img">
+                        <img id="gif" src="">
+                    </div>
+                    <br>
+                    <div class="weather">
+                        <ul>
+                            <li>Time :- <span id="time"></span></li>
+                            <li>Location :- <span id="location"></span></li>
+                            <li>Latitude and Longitude :- <span id="LatLong"></span></li>
+                            <li>Temperature :- <span id="temp"></span><span>&#8451</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="container mt-4">
+                        <div style="display: flex; justify-content: end; margin-bottom: 1.5rem;" class="">
+                            <form id="inputListForm" style="width: 70%; margin-right: 15px;">
+                                <input id="task" class="form-control" placeholder="Task">
+                            </form>
+                            <a class="btnEdit" id="updateTask" role="button" hidden onclick="return updateTask()">+
+                                Update Task</a>
+                            <a class="btnSubmit" id="addTask" role="button" onclick="return addTask()">+ Add
+                                Task</a>
+
+                        </div>
+                        <div>
+                            <div style="text-align: center;">
+                                <hr>
+                                <h4>Uncompleted List</h4>
+                                <hr>
+                            </div>
+                            <ul id="listTodo" class="list-group"></ul>
+                        </div>
+                        <div style="text-align: center;">
+                            <hr>
+                            <h4>Completed List</h4>
+                            <hr>
+                            <ul id="completedTodo" class="list-group"></ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

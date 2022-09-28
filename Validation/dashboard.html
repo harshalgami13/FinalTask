@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .nav-link {
+            font-weight: 500;
+        }
+
+        .active {
+            font-weight: 600;
+        }
+
+        .outerBox {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .innerBox {
+            width: fit-content;
+            padding: 25px !important;
+            height: 50vh;
+            border: 1px solid #bdbdbd;
+            border-radius: 5px;
+        }
+
+        .outerBox ul {
+            display: flex;
+            margin: 0 !important;
+            padding: 0 !important;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 100%;
+        }
+
+        .outerBox li {
+            list-style: none;
+            font-size: 17px;
+            margin: 0 !important;
+            padding: 0 !important;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">User</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="dashboard.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="password.html">Update Password</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="update.html">Update profile</a>
+                    </li>
+                </ul>
+                <form class="d-flex" onsubmit="return clearSession()">
+                    <button class="btn btn-outline-success" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="outerBox">
+        <h4 class="mb-4">User Profile</h4>
+        <div class="innerBox">
+            <ul>
+                <li>Name : <span id="userName"></span></li>
+                <li>Email : <span id="userEmail"></span></li>
+                <li>Number : <span id="userNumber"></span></li>
+                <li>Gender : <span id="userGender"></span></li>
+                <li>Birthdate : <span id="userBirthdate"></span></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script>
+
+        if (sessionStorage.getItem("sessionUser")) {
+            var userName = document.getElementById('userName')
+            var userEmail = document.getElementById('userEmail')
+            var userNumber = document.getElementById('userNumber')
+            var userBirthdate = document.getElementById('userBirthdate')
+
+            let oUserData = JSON.parse(localStorage.getItem('userData'))
+
+            userName.innerHTML = oUserData.userName
+            userEmail.innerHTML = oUserData.userEmail
+            userNumber.innerHTML = oUserData.userNumber
+            userBirthdate.innerHTML = oUserData.userBirthdate
+            userGender.innerHTML = oUserData.userGender
+        }
+        else {
+            window.location = "./index.html"
+        }
+
+        function clearSession() {
+            sessionStorage.removeItem('sessionUser');
+            window.location = "./index.html"
+            return true
+        }
+    </script>
+
+</body>
+
+</html>
